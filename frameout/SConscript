@@ -1,0 +1,17 @@
+Import('env')
+
+env.Object(target='stdafx', source=['stdafx.cpp'])
+env.Object(target='gzstream', source=['gzstream.cpp'])
+env.Object(target='Structs', source=['Structs.cpp'])
+env.Object(target='FrameGeometry', source=['FrameGeometry.cpp'])
+env.Object(target='Gather', source=['Gather.cpp'])
+env.Object(target='InputParameters', source=['InputParameters.cpp'])
+env.Object(target='SearchGrid', source=['SearchGrid.cpp'])
+env.Object(target='Trajectories', source=['Trajectories.cpp'])
+env.Object(target='frameout', source=['frameout.cpp'])
+
+frameout = env.Program(target='frameout-scons', 
+  source=['FrameGeometry', 'Gather', 'gzstream', 'InputParameters', 
+  'frameout', 'stdafx', 'Structs', 'SearchGrid', 'Trajectories'])
+
+Return('frameout')

@@ -1,0 +1,17 @@
+Import('env')
+
+env.Object(target='Structs', source=['Structs.cpp'])
+env.Object(target='FrameGeometry', source=['FrameGeometry.cpp'])
+env.Object(target='gzstream', source=['gzstream.cpp'])
+env.Object(target='InputParameters', source=['InputParameters.cpp'])
+env.Object(target='stdafx', source=['stdafx.cpp'])
+env.Object(target='PeriodicityCheck', source=['PeriodicityCheck.cpp'])
+env.Object(target='SearchGrid', source=['SearchGrid.cpp'])
+env.Object(target='Trajectories', source=['Trajectories.cpp'])
+env.Object(target='checkbox', source=['checkbox.cpp'])
+
+checkbox = env.Program(target='checkbox-scons', 
+  source=['FrameGeometry', 'gzstream', 'InputParameters', 'PeriodicityCheck',
+  'checkbox', 'stdafx', 'Structs', 'SearchGrid', 'Trajectories'])
+
+Return('checkbox')

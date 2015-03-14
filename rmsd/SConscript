@@ -1,0 +1,14 @@
+Import('env')
+
+env.Object(target='Structs', source=['Structs.cpp'])
+env.Object(target='gzstream', source=['gzstream.cpp'])
+env.Object(target='InputParameters', source=['InputParameters.cpp'])
+env.Object(target='stdafx', source=['stdafx.cpp'])
+env.Object(target='Trajectories', source=['Trajectories.cpp'])
+env.Object(target='rmsd', source=['rmsd.cpp'])
+
+rmsd = env.Program(target='rmsd-scons', 
+  source=['gzstream', 'InputParameters', 
+  'rmsd', 'stdafx', 'Structs', 'Trajectories'])
+
+Return('rmsd')

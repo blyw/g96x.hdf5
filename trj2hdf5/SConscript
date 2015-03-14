@@ -1,0 +1,14 @@
+Import('env')
+
+env.Object(target='Structs', source=['Structs.cpp'])
+env.Object(target='FrameGeometry', source=['FrameGeometry.cpp'])
+env.Object(target='gzstream', source=['gzstream.cpp'])
+env.Object(target='InputParameters', source=['InputParameters.cpp'])
+env.Object(target='stdafx', source=['stdafx.cpp'])
+env.Object(target='HDF5ext', source=['HDF5ext.cpp'])
+env.Object(target='Trj2HDF5', source=['trj2hdf5.cpp'])
+
+trj2hdf5 = env.Program(target='trj2hdf5-scons',
+  source=['gzstream', 'HDF5ext', 'FrameGeometry', 'InputParameters', 'stdafx', 'Trj2HDF5'])
+
+Return('trj2hdf5')
